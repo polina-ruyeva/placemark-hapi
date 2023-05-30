@@ -4,7 +4,10 @@ const { Schema } = Mongoose;
 
 const eventSchema = new Schema({
   name: String,
-  category: String,
+  categoryid: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+  },
   description: String,
   views: Number,
 });

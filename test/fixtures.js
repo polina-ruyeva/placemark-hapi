@@ -1,3 +1,5 @@
+import { db } from "../src/models/db.js";
+
 export const serviceUrl = "http://localhost:4000";
 
 export const maggie = {
@@ -57,35 +59,36 @@ export const testCategories = [
   },
 ];
 
+export const wellnessRetreat = {
+  name: "Wellness Retreat",
+  category: "Health and Wellness",
+  description: "A retreat focusing on promoting holistic well-being and self-care.",
+  views: 300,
+};
+
 export const testEvents = [
   {
     name: "Football Championship",
-    category: "Sports",
+    category: "",
     description: "The ultimate football championship featuring top teams from around the world.",
     views: 1000,
   },
   {
     name: "Business Summit",
-    category: "Business",
+    category: "",
     description: "A summit bringing together industry leaders, entrepreneurs, and innovators.",
     views: 500,
   },
   {
     name: "Tech Conference",
-    category: "Technology",
+    category: "",
     description: "A conference showcasing the latest technologies and innovations in the tech industry.",
     views: 800,
   },
   {
     name: "Art Exhibition",
-    category: "Art and Culture",
+    category: "",
     description: "An exhibition displaying a diverse range of artistic creations.",
     views: 200,
-  },
-  {
-    name: "Wellness Retreat",
-    category: "Health and Wellness",
-    description: "A retreat focusing on promoting holistic well-being and self-care.",
-    views: 300,
   },
 ];

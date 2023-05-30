@@ -14,11 +14,17 @@ export const eventMongoStore = {
     return null;
   },
 
-  async addEvent(event) {
+  async addEvent(categoryid, event) {
+    event.categoryid = categoryid;
     const newEvent = new Event(event);
     const eventObj = await newEvent.save();
     const e = await this.getEventById(eventObj._id);
     return e;
+  },
+
+  async getEventsByCategoryId(id) {
+    const events = await Event.find({ categoryid: id }).lean();
+    return events;
   },
 
   async deleteEventById(id) {
@@ -31,5 +37,13 @@ export const eventMongoStore = {
 
   async deleteAll() {
     await Event.deleteMany({});
+  },
+
+  async updateEvent(event, updatedEvent) {
+    const eventDoc = await Event.findOne({ _id: event._id });
+    eventDoc.title = updatedEvent.title;
+    eventDoc.artist = updatedEvent.artist;
+    eventDoc.duration = updatedEvent.duration;
+    await eventDoc.save();
   },
 };

@@ -69,25 +69,25 @@ export const wellnessRetreat = {
 export const testEvents = [
   {
     name: "Football Championship",
-    category: "",
+    categoryid: "",
     description: "The ultimate football championship featuring top teams from around the world.",
     views: 1000,
   },
   {
     name: "Business Summit",
-    category: "",
+    categoryid: "",
     description: "A summit bringing together industry leaders, entrepreneurs, and innovators.",
     views: 500,
   },
   {
     name: "Tech Conference",
-    category: "",
+    categoryid: "",
     description: "A conference showcasing the latest technologies and innovations in the tech industry.",
     views: 800,
   },
   {
     name: "Art Exhibition",
-    category: "",
+    categoryid: "",
     description: "An exhibition displaying a diverse range of artistic creations.",
     views: 200,
   },

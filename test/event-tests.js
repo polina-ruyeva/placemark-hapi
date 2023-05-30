@@ -1,22 +1,29 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
-import { wellnessRetreat, testEvents, testCategories } from "./fixtures.js";
+import { wellnessRetreat, testEvents, healthAndWellness } from "./fixtures.js";
 import { assertSubset } from "./test-utils.js";
 
 suite("Event Model tests", () => {
+  let healthAndWellnessCat = null;
+
   setup(async () => {
     await db.init("mongo");
 
+    await db.categoryStore.deleteAll();
     await db.eventStore.deleteAll();
+
+    healthAndWellnessCat = await db.categoryStore.addCategory(healthAndWellness);
     for (let i = 0; i < testEvents.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
-      testEvents[i] = await db.eventStore.addEvent(testEvents[i]);
+      testEvents[i] = await db.eventStore.addEvent(healthAndWellnessCat._id, testEvents[i]);
     }
   });
 
   test("create an event", async () => {
-    const newEvent = await db.eventStore.addEvent(wellnessRetreat);
-    assertSubset(wellnessRetreat, newEvent);
+    const healthAndWellnessCat = await db.categoryStore.addCategory(healthAndWellness);
+    const event = await db.eventStore.addEvent(healthAndWellnessCat._id, wellnessRetreat);
+    assert.isNotNull(event._id);
+    assertSubset(wellnessRetreat, event);
   });
 
   test("delete all events", async () => {
@@ -28,7 +35,8 @@ suite("Event Model tests", () => {
   });
 
   test("get an event - success", async () => {
-    const event = await db.eventStore.addEvent(wellnessRetreat);
+    const healthAndWellnessCat = await db.categoryStore.addCategory(healthAndWellness);
+    const event = await db.eventStore.addEvent(healthAndWellnessCat._id, wellnessRetreat);
     const returnedEvent = await db.eventStore.getEventById(event._id);
     assert.deepEqual(event, returnedEvent);
   });

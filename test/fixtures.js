@@ -32,3 +32,60 @@ export const testUsers = [
     password: "secret",
   },
 ];
+
+export const healthAndWellness = {
+  name: "Health and Wellness",
+  description: "Events centered around health, fitness, and well-being.",
+};
+
+export const testCategories = [
+  {
+    name: "Sports",
+    description: "Events related to sports activities and competitions.",
+  },
+  {
+    name: "Business",
+    description: "Events focused on business, entrepreneurship, and networking.",
+  },
+  {
+    name: "Technology",
+    description: "Events highlighting the latest advancements and trends in technology.",
+  },
+  {
+    name: "Art and Culture",
+    description: "Events showcasing various forms of art, cultural exhibitions, and performances.",
+  },
+];
+
+export const testEvents = [
+  {
+    name: "Football Championship",
+    category: "Sports",
+    description: "The ultimate football championship featuring top teams from around the world.",
+    views: 1000,
+  },
+  {
+    name: "Business Summit",
+    category: "Business",
+    description: "A summit bringing together industry leaders, entrepreneurs, and innovators.",
+    views: 500,
+  },
+  {
+    name: "Tech Conference",
+    category: "Technology",
+    description: "A conference showcasing the latest technologies and innovations in the tech industry.",
+    views: 800,
+  },
+  {
+    name: "Art Exhibition",
+    category: "Art and Culture",
+    description: "An exhibition displaying a diverse range of artistic creations.",
+    views: 200,
+  },
+  {
+    name: "Wellness Retreat",
+    category: "Health and Wellness",
+    description: "A retreat focusing on promoting holistic well-being and self-care.",
+    views: 300,
+  },
+];

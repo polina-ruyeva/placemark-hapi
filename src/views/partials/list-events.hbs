@@ -1,0 +1,25 @@
+<table class="table is-fullwidth">
+    <thead>
+    <tr>
+        <th>Event</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each category.events}}
+        <tr>
+            <td>
+                {{name}}
+            </td>
+            <td>
+                {{description}}
+            </td>
+            <td>
+                <a href="/category/{{../category._id}}/deleteevent/{{_id}}" class="ui icon button">
+                    <i class="fas fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>

@@ -1,4 +1,5 @@
 import { Category } from "./category.js";
+import { eventMongoStore } from "./event-mongo-store.js";
 
 export const categoryMongoStore = {
   async getAllCategories() {
@@ -9,6 +10,9 @@ export const categoryMongoStore = {
   async getCategoryById(id) {
     if (id) {
       const category = await Category.findOne({ _id: id }).lean();
+      if (category) {
+        category.events = await eventMongoStore.getEventsByCategoryId(category._id);
+      }
       return category;
     }
     return null;
@@ -31,5 +35,10 @@ export const categoryMongoStore = {
 
   async deleteAll() {
     await Category.deleteMany({});
+  },
+
+  async getUserCategories(id) {
+    const categories = await Category.find({ userid: id }).lean();
+    return categories;
   },
 };

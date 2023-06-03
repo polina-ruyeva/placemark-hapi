@@ -27,6 +27,7 @@
     "@hapi/vision": "^7.0.1",
     "dotenv": "^16.0.3",
     "handlebars": "^4.7.7",
+    "joi": "^17.9.2",
     "mongoose": "^7.2.1"
   }
 }

@@ -2,6 +2,7 @@ import { dashboardController } from "./controllers/dashboard-controller.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { categoryController } from "./controllers/category-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
+import { eventController } from "./controllers/event-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -21,4 +22,7 @@ export const webRoutes = [
   { method: "GET", path: "/category/{id}/deleteevent/{eventid}", config: categoryController.deleteEvent },
 
   { method: "GET", path: "/about", config: aboutController.index },
+
+  { method: "POST", path: "/event/{id}/uploadimage", config: eventController.uploadImage },
+  { method: "GET", path: "/event/{id}", config: eventController.index },
 ];

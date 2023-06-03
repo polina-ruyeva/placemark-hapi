@@ -13,11 +13,8 @@ const eventSchema = new Schema({
   lon: Number,
   lat: Number,
   date: Date,
-  image: {
-    //TODO
-    public_id: String,
-    url: String,
-  },
+  image: String,
+  weatherid: Number,
 });
 
 export const Event = Mongoose.model("Event", eventSchema);

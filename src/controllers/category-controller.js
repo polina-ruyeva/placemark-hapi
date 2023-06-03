@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { EventSpec } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 export const categoryController = {
   index: {

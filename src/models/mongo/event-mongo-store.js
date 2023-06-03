@@ -41,9 +41,9 @@ export const eventMongoStore = {
 
   async updateEvent(event, updatedEvent) {
     const eventDoc = await Event.findOne({ _id: event._id });
-    eventDoc.title = updatedEvent.title;
-    eventDoc.artist = updatedEvent.artist;
-    eventDoc.duration = updatedEvent.duration;
+    eventDoc.name = updatedEvent.name;
+    eventDoc.description = updatedEvent.description;
+    eventDoc.image = updatedEvent.image;
     await eventDoc.save();
   },
 };

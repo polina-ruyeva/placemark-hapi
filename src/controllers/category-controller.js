@@ -1,5 +1,5 @@
 import { db } from "../models/db.js";
-//import { TrackSpec } from "../models/joi-schemas.js";
+import { EventSpec } from "../models/joi-schemas.js";
 
 export const categoryController = {
   index: {
@@ -25,7 +25,7 @@ export const categoryController = {
 
   addEvent: {
     validate: {
-      //payload: TrackSpec,
+      payload: EventSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("category-view", { title: "Add event error", errors: error.details }).takeover().code(400);

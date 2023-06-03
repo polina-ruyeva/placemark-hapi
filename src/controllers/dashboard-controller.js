@@ -15,7 +15,7 @@ export const dashboardController = {
 
   addCategory: {
     validate: {
-      //payload: CategorySpec,
+      payload: CategorySpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("category-view", { title: "Add category error", errors: error.details }).takeover().code(400);

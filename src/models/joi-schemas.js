@@ -39,7 +39,7 @@ export const EventArraySpec = Joi.array().items(EventSpecPlus).label("EventArray
 
 export const CategorySpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("Sports"),
+    name: Joi.string().required().example("Sports"),
     userid: IdSpec,
     events: EventArraySpec,
   })

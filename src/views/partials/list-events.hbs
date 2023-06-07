@@ -5,6 +5,7 @@
         <th>Description</th>
         <th>Longitude</th>
         <th>Latitude</th>
+        <th>Date</th>
     </tr>
     </thead>
     <tbody>
@@ -23,12 +24,13 @@
                 {{lat}}
             </td>
             <td>
-                <a href="/event/{{_id}}" class="button">
-                  <span class="icon is-small">
-                      <i class="fas fa-folder-open"></i>
-                  </span>
+                {{date}}
+            </td>
+            <td>
+                <a href="/event/{{_id}}" class="iu icon button">
+                    <i class="fas fa-folder-open"></i>
                 </a>
-                <a href="/catesgory/{{../category._id}}/deleteevent/{{_id}}" class="ui icon button">
+                <a href="/category/{{../category._id}}/deleteevent/{{_id}}" class="ui icon button">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>

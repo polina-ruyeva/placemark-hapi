@@ -1,8 +1,24 @@
 {{> menu}}
 
-<section class="section">
-    <div class="title">
-        {{event.name}}
-        {{> event-image }}
+<section class="section columns is-vcentered">
+    <div class="column has-text-left">
+        <div class="title">
+            {{event.name}}
+        </div>
+        {{#if event.date}}
+            <div class="subtitle">
+                {{event.date}}
+            </div>
+            <div>
+                {{event.description}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="column">
+        {{#if event.image}}
+            <img src="{{event.image}}" alt="{{event.name}}" class="image">
+        {{else}}
+            {{> event-image}}
+        {{/if}}
     </div>
 </section>

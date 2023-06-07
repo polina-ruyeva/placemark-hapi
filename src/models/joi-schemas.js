@@ -27,6 +27,9 @@ export const EventSpec = Joi.object()
     categoryid: IdSpec,
     description: Joi.string().required().example("Surfing in Strandhill"),
     views: Joi.number().allow("").optional().example(12),
+    date: Joi.date().allow("").optional().example("31-12-2023"),
+    lon: Joi.number().allow("").optional().example(12),
+    lat: Joi.number().allow("").optional().example(12),
   })
   .label("Event");
 

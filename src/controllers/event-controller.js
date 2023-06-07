@@ -6,10 +6,16 @@ export const eventController = {
     handler: async function (request, h) {
       let event = await db.eventStore.getEventById(request.params.id);
 
+      if (isNaN(event.views)) {
+        event.views = 0;
+      }
+      event.views = event.views + 1;
+
+      await db.eventStore.updateEvent(event);
+
       const viewData = {
         event: event,
       };
-
       return h.view("event-view", viewData);
     },
   },
@@ -21,7 +27,7 @@ export const eventController = {
         const file = request.payload.imagefile;
         if (Object.keys(file).length > 0) {
           const url = await imageStore.uploadImage(request.payload.imagefile);
-          event.img = url;
+          event.image = url;
           await db.eventStore.updateEvent(event);
         }
         return h.redirect(`/event/${event._id}`);

@@ -38,6 +38,9 @@ export const categoryController = {
         //TODO
         name: request.payload.name,
         description: request.payload.description,
+        date: request.payload.date,
+        lon: request.payload.lon,
+        lat: request.payload.lat,
       };
       await db.eventStore.addEvent(category._id, newEvent);
       return h.redirect(`/category/${category._id}`);

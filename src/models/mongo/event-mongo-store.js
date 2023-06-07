@@ -39,11 +39,16 @@ export const eventMongoStore = {
     await Event.deleteMany({});
   },
 
-  async updateEvent(event, updatedEvent) {
+  async updateEvent(event) {
     const eventDoc = await Event.findOne({ _id: event._id });
-    eventDoc.title = updatedEvent.title;
-    eventDoc.artist = updatedEvent.artist;
-    eventDoc.duration = updatedEvent.duration;
+    eventDoc.name = event.name;
+    eventDoc.description = event.description;
+    eventDoc.image = event.image;
+    eventDoc.date = event.date;
+    eventDoc.lon = event.lon;
+    eventDoc.lat = event.lat;
+    eventDoc.views = event.views;
+    eventDoc.weatherid = event.weatherid;
     await eventDoc.save();
   },
 };

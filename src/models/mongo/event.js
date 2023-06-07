@@ -10,6 +10,11 @@ const eventSchema = new Schema({
   },
   description: String,
   views: Number,
+  lon: Number,
+  lat: Number,
+  date: Date,
+  image: String,
+  weatherid: Number,
 });
 
 export const Event = Mongoose.model("Event", eventSchema);

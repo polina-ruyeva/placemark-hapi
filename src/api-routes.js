@@ -1,5 +1,5 @@
 import { userApi } from "./api/user-api.js";
-import { categoriesApi } from "./api/categories-api.js";
+import { categoryApi } from "./api/category-api.js";
 import { eventApi } from "./api/event-api.js";
 
 export const apiRoutes = [

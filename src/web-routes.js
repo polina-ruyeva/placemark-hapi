@@ -25,4 +25,6 @@ export const webRoutes = [
 
   { method: "POST", path: "/event/{id}/uploadimage", config: eventController.uploadImage },
   { method: "GET", path: "/event/{id}", config: eventController.index },
+
+  { method: "GET", path: "/admin", config: dashboardController.admin },
 ];

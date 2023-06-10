@@ -33,4 +33,17 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+
+  admin: {
+    handler: async function (request, h) {
+      const users = await db.userStore.getAllUsers();
+
+      const viewData = {
+        title: "User Administration",
+        users: users,
+      };
+
+      return h.view("admin-view", viewData);
+    },
+  },
 };

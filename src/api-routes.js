@@ -5,6 +5,8 @@ import { eventApi } from "./api/event-api.js";
 export const apiRoutes = [
   { method: "POST", path: "/api/users", config: userApi.create },
   { method: "GET", path: "/api/users", config: userApi.find },
+  { method: "DELETE", path: "/api/users", config: userApi.deleteAll },
+  { method: "GET", path: "/api/users/{id}", config: userApi.findOne },
 
   { method: "POST", path: "/api/categories", config: categoryApi.create },
   { method: "DELETE", path: "/api/categories", config: categoryApi.deleteAll },

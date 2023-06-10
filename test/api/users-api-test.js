@@ -7,7 +7,7 @@ const users = new Array(testUsers.length);
 
 suite("User API tests", () => {
   setup(async () => {
-    placemarkService.clearAuth();
+    await placemarkService.clearAuth();
     await placemarkService.createUser(maggie);
     await placemarkService.authenticate(maggieCredentials);
     await placemarkService.deleteAllUsers();

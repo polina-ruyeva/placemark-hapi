@@ -14,7 +14,7 @@ export const apiRoutes = [
 
   { method: "GET", path: "/api/events", config: eventApi.find },
   { method: "GET", path: "/api/events/{id}", config: eventApi.findOne },
-  { method: "POST", path: "/api/playlists/{id}/events", config: eventApi.create },
+  { method: "POST", path: "/api/categories/{id}/events", config: eventApi.create },
   { method: "DELETE", path: "/api/events", config: eventApi.deleteAll },
   { method: "DELETE", path: "/api/events/{id}", config: eventApi.deleteOne },
 

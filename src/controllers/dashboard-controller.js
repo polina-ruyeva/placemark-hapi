@@ -10,6 +10,7 @@ export const dashboardController = {
         title: "Dashboard",
         user: loggedInUser,
         categories: categories,
+        cred: request.auth.credentials,
       };
       return h.view("dashboard-view", viewData);
     },
@@ -28,6 +29,7 @@ export const dashboardController = {
       const newCategory = {
         userid: loggedInUser._id,
         name: request.payload.name,
+        cred: request.auth.credentials,
       };
       await db.categoryStore.addCategory(newCategory);
       return h.redirect("/dashboard");
@@ -36,14 +38,19 @@ export const dashboardController = {
 
   admin: {
     handler: async function (request, h) {
-      const users = await db.userStore.getAllUsers();
+      if (request.auth.credentials && request.auth.credentials.admin) {
+        const users = await db.userStore.getAllUsers();
 
-      const viewData = {
-        title: "User Administration",
-        users: users,
-      };
+        const viewData = {
+          title: "User Administration",
+          users: users,
+          cred: request.auth.credentials,
+        };
 
-      return h.view("admin-view", viewData);
+        return h.view("admin-view", viewData);
+      } else {
+        return h.response("Unauthorized").code(401);
+      }
     },
   },
 };

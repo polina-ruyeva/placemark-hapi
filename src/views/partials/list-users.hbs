@@ -2,13 +2,21 @@
     <thead>
     <tr>
         <th>Name</th>
+        <th>Lastname</th>
+        <th>Email</th>
     </tr>
     </thead>
     <tbody>
     {{#each users}}
         <tr>
             <td>
-                {{name}}
+                {{firstName}}
+            </td>
+            <td>
+                {{lastName}}
+            </td>
+            <td>
+                {{email}}
             </td>
             <td>
                 <!--TODO: add delete user -->

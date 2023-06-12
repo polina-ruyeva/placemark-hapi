@@ -10,6 +10,7 @@ export const dashboardController = {
         title: "Dashboard",
         user: loggedInUser,
         categories: categories,
+        cred: request.auth.credentials,
       };
       return h.view("dashboard-view", viewData);
     },
@@ -28,6 +29,7 @@ export const dashboardController = {
       const newCategory = {
         userid: loggedInUser._id,
         name: request.payload.name,
+        cred: request.auth.credentials,
       };
       await db.categoryStore.addCategory(newCategory);
       return h.redirect("/dashboard");

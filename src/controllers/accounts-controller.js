@@ -52,13 +52,14 @@ export const accountsController = {
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
-      return h.redirect("/dashboard");
+      return h.redirect("/dashboard", { cred: request.auth.credentials });
     },
   },
 
   logout: {
     handler: function (request, h) {
       request.cookieAuth.clear();
+      request.auth.credentials = null;
       return h.redirect("/");
     },
   },

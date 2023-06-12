@@ -3,6 +3,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { categoryController } from "./controllers/category-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { eventController } from "./controllers/event-controller.js";
+import { adminController } from "./controllers/admin-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -26,5 +27,7 @@ export const webRoutes = [
   { method: "POST", path: "/event/{id}/uploadimage", config: eventController.uploadImage },
   { method: "GET", path: "/event/{id}", config: eventController.index },
 
-  { method: "GET", path: "/admin", config: dashboardController.admin },
+  { method: "GET", path: "/admin", config: adminController.index },
+
+  { method: "GET", path: "/deleteuser/{id}", config: adminController.deleteUser },
 ];

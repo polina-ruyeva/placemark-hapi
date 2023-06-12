@@ -35,22 +35,4 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
-
-  admin: {
-    handler: async function (request, h) {
-      if (request.auth.credentials && request.auth.credentials.admin) {
-        const users = await db.userStore.getAllUsers();
-
-        const viewData = {
-          title: "User Administration",
-          users: users,
-          cred: request.auth.credentials,
-        };
-
-        return h.view("admin-view", viewData);
-      } else {
-        return h.response("Unauthorized").code(401);
-      }
-    },
-  },
 };

@@ -11,6 +11,7 @@ export const eventApi = {
     handler: async function (request, h) {
       try {
         const events = await db.eventStore.getAllEvents();
+        console.log(events);
         return events;
       } catch (err) {
         return Boom.serverUnavailable("Database Error");

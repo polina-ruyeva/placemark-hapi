@@ -11,6 +11,7 @@ export const apiRoutes = [
   { method: "POST", path: "/api/categories", config: categoryApi.create },
   { method: "DELETE", path: "/api/categories", config: categoryApi.deleteAll },
   { method: "GET", path: "/api/categories", config: categoryApi.find },
+
   { method: "GET", path: "/api/categories/{id}", config: categoryApi.findOne },
   { method: "DELETE", path: "/api/categories/{id}", config: categoryApi.deleteOne },
 
@@ -21,4 +22,6 @@ export const apiRoutes = [
   { method: "DELETE", path: "/api/events/{id}", config: eventApi.deleteOne },
 
   { method: "POST", path: "/api/users/authenticate", config: userApi.authenticate },
+
+  { method: "POST", path: "/api/events/{id}/images", config: eventApi.addImage },
 ];

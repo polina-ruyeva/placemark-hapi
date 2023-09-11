@@ -92,7 +92,7 @@ export const eventApi = {
         if (!event) {
           return Boom.notFound("No Event with this id");
         }
-        await db.eventStore.deleteEvent(event._id);
+        await db.eventStore.deleteEventById(event._id);
         return h.response().code(204);
       } catch (err) {
         return Boom.serverUnavailable("No Event with this id");

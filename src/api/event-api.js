@@ -102,4 +102,29 @@ export const eventApi = {
     description: "Delete a event",
     validate: { params: { id: IdSpec }, failAction: validationError },
   },
+
+  addImage: {
+    auth: {
+      strategy: "jwt",
+    },
+    handler: async function (request, h) {
+      try {
+        const event = await db.eventStore.getEventById(request.params.id);
+        if (!event) {
+          return Boom.notFound("No Event with this id");
+        }
+
+        const imageUrl = request.payload.image;
+        event.image.push(imageUrl);
+        await db.eventStore.updateEvent(event);
+
+        return h.response(event).code(200);
+      } catch (err) {
+        return Boom.serverUnavailable("Error adding image to the event");
+      }
+    },
+    tags: ["api"],
+    description: "Add an image to a event",
+    response: { schema: EventSpecPlus, failAction: validationError },
+  },
 };

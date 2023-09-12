@@ -16,7 +16,7 @@ const eventSchema = new Schema({
   lon: Number,
   lat: Number,
   date: Date,
-  image: String,
+  image: [String],
   weatherid: Number,
 });
 

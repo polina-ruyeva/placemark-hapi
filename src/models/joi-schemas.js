@@ -30,7 +30,7 @@ export const EventSpec = Joi.object()
     date: Joi.date().allow("").optional().example("31-12-2023"),
     lon: Joi.number().allow("").optional().example(12),
     lat: Joi.number().allow("").optional().example(12),
-    image: Joi.string().optional(),
+    image: Joi.array().items(Joi.string()).optional(),
   })
   .label("Event");
 

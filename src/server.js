@@ -15,6 +15,8 @@ import { apiRoutes } from "./api-routes.js";
 import Joi from "joi";
 import HapiSwagger from "hapi-swagger";
 
+import HapiCors from "hapi-cors";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -43,10 +45,23 @@ async function init() {
     port: process.env.PORT || 3000,
     routes: { cors: true },
   });
+
   await server.register(Inert);
   await server.register(Vision);
   await server.register(Cookie);
   await server.register(jwt);
+
+  /*await server.register({
+    plugin: HapiCors,
+    options: {
+      origins: ["http://127.0.0.1:5176"],
+      allowCredentials: "true",
+      exposeHeaders: ["content-type", "content-length"],
+      maxAge: 600,
+      methods: ["POST, GET, OPTIONS"],
+      headers: ["Authorization", "Accept", "Content-Type"],
+    },
+  });*/
 
   await server.register([
     Inert,

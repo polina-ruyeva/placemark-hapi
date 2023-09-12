@@ -10,6 +10,7 @@ export const categoryController = {
       const viewData = {
         title: "Category",
         category: category,
+        cred: request.auth.credentials,
       };
 
       return h.view("category-view", viewData);
@@ -35,7 +36,6 @@ export const categoryController = {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newEvent = {
-        //TODO
         name: request.payload.name,
         description: request.payload.description,
         date: request.payload.date,

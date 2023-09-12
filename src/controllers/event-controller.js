@@ -15,6 +15,7 @@ export const eventController = {
 
       const viewData = {
         event: event,
+        cred: request.auth.credentials,
       };
       return h.view("event-view", viewData);
     },

@@ -9,7 +9,10 @@ const eventSchema = new Schema({
     ref: "Category",
   },
   description: String,
-  views: Number,
+  views: {
+    type: Number,
+    default: 0,
+  },
   lon: Number,
   lat: Number,
   date: Date,

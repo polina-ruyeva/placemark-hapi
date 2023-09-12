@@ -8,9 +8,19 @@
                 <div class="buttons">
                     <a id="dashboard" class="button" href="/dashboard"> Dashboard </a>
                     <a id="about" class="button is-success" href="/about"> About </a>
+                    <a id="admin" class="button" href="/admin"> Admin </a>
                     <a id="logout" class="button" href="/logout"> Logout </a>
                 </div>
             </div>
         </div>
     </div>
 </nav>
+
+<script>
+    if ("{{cred.admin}}") {
+        document.getElementById("admin").style.display = "block";
+    } else {
+        document.getElementById("admin").style.display = "none";
+    }
+
+</script>
